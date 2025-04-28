@@ -12,7 +12,7 @@ public class Main {
         Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        while (true){
             System.out.println("Меню опций:");
             System.out.println("1. Вывести все товары");
             System.out.println("2. Получить список всех клиентов");
@@ -69,15 +69,11 @@ public class Main {
                     break;
                 default:
                     System.out.println("Неверный ввод! Пожалуйста, выберите номер из меню.");
-            } while (choice!=13);
-                    closeConnection(connection);
-                    scanner.close();
+            }while (choice!=13 ) ;
+            closeConnection(connection);
+           scanner.close();
+        }}}
 
-
-                }
-            }
-
-        }
 
 
 

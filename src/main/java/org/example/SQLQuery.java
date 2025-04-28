@@ -4,12 +4,13 @@ import java.util.Scanner;
 public class SQLQuery  {
 
     public SQLQuery() throws SQLException {}
+
     public static void displayAllProducts(Connection connection) {
         String query = "SELECT * FROM products";
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                System.out.printf("%d | %s | %.2f | %d%n", rs.getInt("id"), rs.getString("name"), rs.getBigDecimal("price"), rs.getInt("stock"));
+                System.out.println(rs.getString("name") + " " + rs.getBigDecimal("price") + " " + rs.getInt("stock"));
             }
         } catch (SQLException e) {
             System.out.println("Ошибка");
@@ -20,11 +21,10 @@ public class SQLQuery  {
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                System.out.printf("%d | %s | %s", rs.getInt("id"), rs.getString("name"), rs.getString("email"));
+                System.out.println(rs.getString("name")+ " " +  rs.getString("email"));
             }
         } catch (SQLException e) {
             System.out.println("Ошибка");
-
         }
     }
     public static void findMostExpensiveProduct(Connection connection) {
@@ -32,7 +32,7 @@ public class SQLQuery  {
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             if (rs.next()) {
-                System.out.printf("%d | %s | %.2f | %d%n", rs.getInt("id"), rs.getString("name"), rs.getBigDecimal("price"), rs.getInt("stock"));
+                System.out.printf(rs.getString("name"),  rs.getBigDecimal("price"),  rs.getInt("stock"));
             }
         } catch (SQLException e) {
             System.out.println("Ошибка");
@@ -50,7 +50,7 @@ public class SQLQuery  {
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
-                    System.out.printf("%d | %s | %.2f | %d%n", rs.getInt("id"), rs.getString("name"), rs.getBigDecimal("price"), rs.getInt("stock"));
+                    System.out.println(rs.getString("name")  + " " +  rs.getBigDecimal("price") + " " + rs.getInt("stock"));
                 }
             }
         } catch (SQLException e) {
@@ -68,7 +68,7 @@ public class SQLQuery  {
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
-                    System.out.printf("%d | %s | %s | %s%n", rs.getInt("id"), rs.getString("name"), rs.getString("email"), rs.getTimestamp("registered_at"));
+                    System.out.printf(rs.getString("name"), rs.getString("email"), rs.getTimestamp("registered_at"));
                 }
             }
         } catch (SQLException e) {
@@ -110,8 +110,7 @@ public class SQLQuery  {
 
             try(ResultSet rs= pstmt.executeQuery()){
                 while(rs.next()){
-                    System.out.printf("%d | %s | %.2f | %d%n",rs.getInt ("id"),rs.getString ("name"),
-                            rs.getBigDecimal ("price"),rs.getInt ("stock"));
+                    System.out.printf(rs.getString (" name"), rs.getBigDecimal ("price"), rs.getInt ("stock"));
                 }
             }
         }catch(SQLException e){
