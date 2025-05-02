@@ -69,7 +69,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Неверный ввод! Пожалуйста, выберите номер из меню.");
-            }while (choice!=13 ) ;
+            }while (choice!=13);
             closeConnection(connection);
            scanner.close();
         }}}
